@@ -1,5 +1,8 @@
 # react-tool-boiler-plate
 
+This is starter project to demostrate how to use react toolkit with react-redux in the react project.
+React hooks are used with functional component.
+
 # dtsgenerator
 
 # you can generate all interfaces required from swagger, instead of creating all. Follow the following steps to do so.
@@ -14,3 +17,7 @@
 3. run npm dtsgen command in cmd.
 4. All the interfaces imported from swagger, will be available in Definations object.
 5. just use Defination dot with the required interface in the project.
+
+Review package.json file, used react-redux, react-routing-dom, react-toolkit, styled component, axios, antd in the project
+
+# Used open web APIs for API call.
