@@ -30,7 +30,10 @@ export const getCountryFromInput = createAsyncThunk(
     '/reducer/getCountryFromInput', async (params: any, { rejectWithValue }) => {
         try {
             const response = await getCountryFromInputFromApi(params);
-            return response.data;
+            if (response.data && response.data.length !== 0) {
+                return response.data;
+            }
+            rejectWithValue('No Result Found')
         } catch (err) {
             return rejectWithValue(err);
         }
