@@ -14,10 +14,11 @@ export const getApiDataFromApi = (): Promise<AxiosResponse> => {
 
 export const getCountryDetailsFromApi = (): Promise<any> => {
   const requestOne = APIOrders.get('/rest/v2/name/Australia');
-  const requestTwo = APIOrders.get('/rest/v2/name/China');
-  const requestThree = APIOrders.get('/rest/v2/name/Germany');
+  const requestTwo = APIOrders.get('/rest/v2/name/Mexico');
+  const requestThree = APIOrders.get('/rest/v2/name/Indonesia');
   const requestFour = APIOrders.get('/rest/v2/name/USA');
-  return axios.all([requestOne, requestTwo, requestThree, requestFour]).catch(err => { });
+  const requestFive = APIOrders.get('/rest/v2/name/Russia');
+  return axios.all([requestOne, requestTwo, requestThree, requestFour, requestFive]).catch(err => { });
   
 }
 
