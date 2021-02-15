@@ -19,6 +19,7 @@ const LeftNav = () => {
         <Menu.ItemGroup key="g1">
           <Menu.Item key="1"><NavLink to="/">All Country</NavLink></Menu.Item>
           <Menu.Item key="2"><NavLink to="/search">Search Country</NavLink></Menu.Item>
+          <Menu.Item key="3"><NavLink to="/countryChart">Country By Charts</NavLink></Menu.Item>
         </Menu.ItemGroup>
       </Menu>
     </div>

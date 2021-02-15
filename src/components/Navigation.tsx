@@ -5,6 +5,7 @@ import { Route } from 'react-router-dom';
 import { RootState, useAppDispatch } from '../store/indexes';
 import { reducerSlice } from '../store/reducer';
 import Component from './Component';
+import CountryChart from './CountryChart';
 import Header from './Header';
 import LeftNav from './LeftNav';
 import SearchCountry from './SearchCountry';
@@ -37,6 +38,9 @@ const Navigation: React.FC = () => {
                     </Route>
                     <Route exact path='/search'>
                         <SearchCountry></SearchCountry>
+                    </Route>
+                    <Route exact path='/countryChart'>
+                        <CountryChart></CountryChart>
                     </Route>
                 </div>
             </div>

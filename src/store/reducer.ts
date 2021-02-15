@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { getApiDataFromApi, getCountryFromInputFromApi } from "../apis/apis";
+import { getApiDataFromApi, getCountryDetailsFromApi, getCountryFromInputFromApi } from "../apis/apis";
 
 interface StateSlice {
     screenDetail: string;
@@ -8,6 +8,7 @@ interface StateSlice {
     errorMsg: string;
     apiData: any[];
     apiCountryData: any[];
+    dataForChart: any[]
 }
 
 const initialState: StateSlice = {
@@ -16,13 +17,21 @@ const initialState: StateSlice = {
     successMsg: '',
     errorMsg: '',
     apiData: [],
-    apiCountryData: []
+    apiCountryData: [],
+    dataForChart: []
 }
 
 export const getApiData = createAsyncThunk(
     '/reducer/getApiData', async () => {
         const response = await getApiDataFromApi();
         return response.data;
+    }
+)
+
+export const getCountryDetails = createAsyncThunk(
+    '/reducer/getCountryDetails', async () => {
+        const response = await getCountryDetailsFromApi();
+        return response;
     }
 )
 
@@ -77,6 +86,13 @@ export const reducerSlice = createSlice({
         builder.addCase(getCountryFromInput.rejected, (state, action) => {
             state.apiCountryData = []
             state.errorMsg = 'Not Found';
+        })
+
+        builder.addCase(getCountryDetails.fulfilled, (state, action) => {
+            state.dataForChart = []
+            action.payload.forEach((element: any ) => {
+                state.dataForChart.push(element.data);
+            });
         })
     }
 });
