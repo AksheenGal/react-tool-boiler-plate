@@ -8,7 +8,8 @@ interface StateSlice {
     errorMsg: string;
     apiData: any[];
     apiCountryData: any[];
-    dataForChart: any[]
+    dataForChart: any[];
+    loader: boolean;
 }
 
 const initialState: StateSlice = {
@@ -18,7 +19,8 @@ const initialState: StateSlice = {
     errorMsg: '',
     apiData: [],
     apiCountryData: [],
-    dataForChart: []
+    dataForChart: [],
+    loader: false
 }
 
 export const getApiData = createAsyncThunk(
@@ -72,6 +74,16 @@ export const reducerSlice = createSlice({
 
         setEmptyCountryFromInput: (state) => {
             state.apiCountryData = []
+        },
+
+        setLoaderTrue: (state) => {
+            console.log("setting loader to true");
+            state.loader = true;
+        },
+
+        setLoaderFalse: (state) => {
+            console.log("setting loader to true");
+            state.loader = false;
         }
     },
     extraReducers: (builder) => {

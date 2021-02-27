@@ -9,14 +9,17 @@ import CountryChart from './CountryChart';
 import Header from './Header';
 import LeftNav from './LeftNav';
 import SearchCountry from './SearchCountry';
+import { Spin } from 'antd';
+import { LoadingOutlined } from '@ant-design/icons';
 
+const antIcon = <LoadingOutlined style={{ fontSize: 80 }} spin />;
 
 const Navigation: React.FC = () => {
     const dispatch = useAppDispatch();
     const screenDetail = useSelector((state: RootState) => state.reducer.screenDetail);
     const successMsg = useSelector((state: RootState) => state.reducer.successMsg);
     const errorMsg = useSelector((state: RootState) => state.reducer.errorMsg);
-
+    const loader = useSelector((state: RootState) => state.reducer.loader);
     const handleErrorOk = () => {
         dispatch(reducerSlice.actions.setErrorMsg(''))
     };
@@ -26,6 +29,8 @@ const Navigation: React.FC = () => {
     };
     return (
         <>
+            {loader && <Spin style={{ position: 'absolute', top: '40%' }} indicator={antIcon} />}
+            {loader && <div className="freezeScreen"></div>}
             <div>
                 <Header></Header>
             </div>
