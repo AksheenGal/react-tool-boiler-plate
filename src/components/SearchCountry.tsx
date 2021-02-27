@@ -8,6 +8,7 @@ import { getCountryFromInput, reducerSlice } from '../store/reducer';
 const SearchCountry = () => {
     const inputRef = useRef(null);
     const dispatch = useDispatch();
+    dispatch(reducerSlice.actions.setScreenDetail('Search Countries by Name'));
     let countryData = useSelector((state: RootState) => state.reducer.apiCountryData)
     const getCountryByName = () => {
         dispatch(getCountryFromInput(inputRef.current));

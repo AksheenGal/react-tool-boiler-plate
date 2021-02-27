@@ -49,15 +49,14 @@ const CountryChart: any = () => {
         ],
         []
       )
-    return (
-        <div style={{height: '400px', width: '400px', display: 'inline-block'}}>
+  return (
+      <div style={{}}>
+        <div style={{height: '400px',width: '50%', display: 'inline-block'}}>
             { console.log(data)}
             {data && <Chart data={data} series={series} axes={axes} tooltip />}
-
-      <br />
-        {/* <SyntaxHighlighter code={sourceCode} /> */}
-        <PieChart data={pieData} segmentsShift={(index) => (index === 0 ? 1 : 0.5)}/>
         </div>
+        <PieChart style={{height: '400px',width: '50%'}} data={pieData} segmentsShift={(index) => (index === 0 ? 1 : 0.5)}/>
+      </div>
     );
 }
 

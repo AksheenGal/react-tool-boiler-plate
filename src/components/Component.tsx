@@ -9,7 +9,7 @@ const Component: React.FC = () => {
     const countryData = useSelector((state: RootState) => state.reducer.apiData);
     useEffect(() => {
         dispatch(getApiData());
-        dispatch(reducerSlice.actions.setScreenDetail('Screen Detail Section'));
+        dispatch(reducerSlice.actions.setScreenDetail('All Countries'));
     }, [dispatch])
     return (
         <div style={{display: 'flex', flexWrap: 'wrap', flexDirection: 'row'}}>

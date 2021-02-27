@@ -31,7 +31,7 @@ const Navigation: React.FC = () => {
             </div>
             <div style={{ display: 'flex' }}>
                 <LeftNav></LeftNav>
-                <div style={{ width: '100%' }}>
+                <div style={{ width: '100%', height: '700px', overflowY: 'scroll' }}>
                     <div className="screenHeader">{screenDetail}</div>
                     <Route exact path='/'>
                         <Component></Component>

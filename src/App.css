@@ -1,3 +1,7 @@
+body {
+  overflow: hidden;
+}
+
 .App {
   text-align: center;
 }
@@ -35,4 +39,10 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.screenHeader {
+  margin: 10px;
+  font-size: 20px;
+  font-weight: bold;
 }
