@@ -21,3 +21,7 @@ React hooks are used with functional component.
 Review package.json file, used react-redux, react-routing-dom, react-toolkit, styled component, axios, antd in the project
 
 # Used open web APIs for API call.
+
+# react-chart
+
+This project also include react-chart library.

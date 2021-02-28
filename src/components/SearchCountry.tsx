@@ -13,6 +13,7 @@ const SearchCountry = () => {
         dispatch(getCountryFromInput(inputRef.current));
     }
     useEffect((): any => {
+        dispatch(reducerSlice.actions.setScreenDetail('Search Countries by Name'));
         return dispatch(reducerSlice.actions.setEmptyCountryFromInput())
     }, [dispatch])
 
