@@ -8,8 +8,14 @@ const App = () => {
   return (
     <div className="App">
       <BrowserRouter>
+<<<<<<< HEAD
 
           <Navigation></Navigation>
+=======
+        <ErrorBoundary>
+          <Navigation></Navigation>
+          </ErrorBoundary>
+>>>>>>> 04ca84b4196ff46d9887a9b6e24ffd254c99d0ad
       </BrowserRouter>
     </div>
   );
