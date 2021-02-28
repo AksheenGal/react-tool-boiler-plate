@@ -11,7 +11,7 @@ const LeftNav = () => {
   return (
     <div style={{ height: window.innerHeight - headerHeight }}>
       <Menu
-      
+        theme="dark"
         style={{ width: 200, height: '100%' }}
         defaultSelectedKeys={[location.pathname]}
         mode="inline"

@@ -10,6 +10,7 @@ interface StateSlice {
     apiCountryData: any[];
     dataForChart: any[];
     loader: boolean;
+    isAuthenticated: string;
 }
 
 const initialState: StateSlice = {
@@ -20,7 +21,8 @@ const initialState: StateSlice = {
     apiData: [],
     apiCountryData: [],
     dataForChart: [],
-    loader: false
+    loader: false,
+    isAuthenticated: 'false'
 }
 
 export const getApiData = createAsyncThunk(
@@ -82,6 +84,10 @@ export const reducerSlice = createSlice({
 
         setLoaderFalse: (state) => {
             state.loader = false;
+        },
+
+        setAuth: (state, action) => {
+            state.isAuthenticated = action.payload;
         }
     },
     extraReducers: (builder) => {
@@ -93,9 +99,11 @@ export const reducerSlice = createSlice({
             state.apiCountryData = action.payload;
         })
 
-        builder.addCase(getCountryFromInput.rejected, (state, action) => {
-            state.apiCountryData = []
-            state.errorMsg = 'Not Found';
+        builder.addCase(getCountryFromInput.rejected, (state, action: any) => {
+            state.apiCountryData = initialState.apiCountryData;
+            const requestUrl = action.payload.request.responseURL.split('/');
+            console.log(requestUrl);
+            state.errorMsg = 'No Result found with country search input: ' + requestUrl[requestUrl.length - 1];
         })
 
         builder.addCase(getCountryDetails.fulfilled, (state, action) => {

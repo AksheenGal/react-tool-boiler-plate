@@ -11,6 +11,7 @@ import LeftNav from './LeftNav';
 import SearchCountry from './SearchCountry';
 import { Spin } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
+import Login from './Login';
 
 const antIcon = <LoadingOutlined style={{ fontSize: 80 }} spin />;
 
@@ -23,7 +24,7 @@ const Navigation: React.FC = () => {
     const handleErrorOk = () => {
         dispatch(reducerSlice.actions.setErrorMsg(''))
     };
-
+    const auth = useSelector((state: RootState) => state.reducer.isAuthenticated);
     const handleSuccessOk = () => {
         dispatch(reducerSlice.actions.setSuccessMsg(''))
     };
@@ -31,24 +32,25 @@ const Navigation: React.FC = () => {
         <>
             {loader && <Spin style={{ position: 'absolute', top: '40%' }} indicator={antIcon} />}
             {loader && <div className="freezeScreen"></div>}
-            <div>
+            {auth && auth === 'true' && <div>
                 <Header></Header>
-            </div>
-            <div style={{ display: 'flex' }}>
-                <LeftNav></LeftNav>
-                <div style={{ width: '100%', height: '700px', overflowY: 'scroll' }}>
-                    <div className="screenHeader">{screenDetail}</div>
-                    <Route exact path='/'>
-                        <Component></Component>
-                    </Route>
-                    <Route exact path='/search'>
-                        <SearchCountry></SearchCountry>
-                    </Route>
-                    <Route exact path='/countryChart'>
-                        <CountryChart></CountryChart>
-                    </Route>
+                <div style={{ display: 'flex' }}>
+                    <LeftNav></LeftNav>
+                    <div style={{ width: '100%', height: '700px', overflowY: 'scroll' }}>
+                        <div className="screenHeader">{screenDetail}</div>
+                        <Route exact path='/'>
+                            <Component></Component>
+                        </Route>
+                        <Route exact path='/search'>
+                            <SearchCountry></SearchCountry>
+                        </Route>
+                        <Route exact path='/countryChart'>
+                            <CountryChart></CountryChart>
+                        </Route>
+                    </div>
                 </div>
-            </div>
+            </div>}
+            {auth && auth === 'false' && <Login></Login>}
             {(errorMsg !== '') && <Modal title="Error"
                     visible={errorMsg !== ''}
                     onOk={handleErrorOk}
