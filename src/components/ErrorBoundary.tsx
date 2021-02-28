@@ -1,11 +1,7 @@
 import React from 'react';
 
-<<<<<<< HEAD
 export class ErrorBoundary extends React.Component<any, any> {
-=======
-class ErrorBoundary extends React.Component<any, any> {
->>>>>>> 04ca84b4196ff46d9887a9b6e24ffd254c99d0ad
-  constructor(props) {
+  constructor(props) { 
     super(props);
     this.state = { error: null, errorInfo: null };
   }
