@@ -8,9 +8,8 @@ const App = () => {
   return (
     <div className="App">
       <BrowserRouter>
-        <ErrorBoundary>
+
           <Navigation></Navigation>
-          </ErrorBoundary>
       </BrowserRouter>
     </div>
   );
