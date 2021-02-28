@@ -57,7 +57,7 @@ const Navigation: React.FC = () => {
                         {errorMsg}
             </Modal>}
             
-            {(successMsg !== '') && <Modal title="Error"
+            {(successMsg !== '') && <Modal title="Success"
                     visible={successMsg !== ''}
                     onOk={handleSuccessOk}
                     width={300}

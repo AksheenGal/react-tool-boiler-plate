@@ -14,7 +14,7 @@ interface StateSlice {
 
 const initialState: StateSlice = {
     screenDetail: '',
-    headerTitle: 'Header Title',
+    headerTitle: 'Country Dashboard',
     successMsg: '',
     errorMsg: '',
     apiData: [],
@@ -77,12 +77,10 @@ export const reducerSlice = createSlice({
         },
 
         setLoaderTrue: (state) => {
-            console.log("setting loader to true");
             state.loader = true;
         },
 
         setLoaderFalse: (state) => {
-            console.log("setting loader to true");
             state.loader = false;
         }
     },

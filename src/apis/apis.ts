@@ -39,9 +39,10 @@ const getApiCall = (url: string): Promise<AxiosResponse> => {
   return pro;
 }
 
-const getAll = (allPromise: any): Promise<any> => { 
+const getAll = (allPromise: any): Promise<any> => {
   store.dispatch(reducerSlice.actions.setLoaderTrue());
   const pro = axios.all(allPromise);
-  pro.then(() => store.dispatch(reducerSlice.actions.setLoaderFalse()));
+  pro.then(() => store.dispatch(reducerSlice.actions.setLoaderFalse()))
+    .catch(err => reducerSlice.actions.setLoaderFalse());
   return pro;
 }

@@ -10,7 +10,7 @@ const CountryChart: any = () => {
     useEffect(() => { 
         dispatch(reducerSlice.actions.setScreenDetail('Country By Charts'));
         dispatch(getCountryDetails())
-    }, [])
+    }, [dispatch])
     const dataForChart = useSelector((state: RootState) => state.reducer.dataForChart);
 
     const data = [{
@@ -52,7 +52,6 @@ const CountryChart: any = () => {
   return (
       <div style={{}}>
         <div style={{height: '400px',width: '50%', display: 'inline-block'}}>
-            { console.log(data)}
             {data && <Chart data={data} series={series} axes={axes} tooltip />}
         </div>
         <PieChart style={{height: '400px',width: '50%'}} data={pieData} segmentsShift={(index) => (index === 0 ? 1 : 0.5)}/>

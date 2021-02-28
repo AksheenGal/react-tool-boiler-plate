@@ -12,9 +12,9 @@ const Component: React.FC = () => {
         dispatch(reducerSlice.actions.setScreenDetail('All Countries'));
     }, [dispatch])
     return (
-        <div style={{display: 'flex', flexWrap: 'wrap', flexDirection: 'row'}}>
+        <div style={{display: 'flex', flexWrap: 'wrap', flexDirection: 'row', margin: '10px', textAlign: 'left'}}>
             {countryData.map((data, index) => (
-                <CountryData>
+                <CountryData key={index}>
                     {index+1 + '.  '} {data.name}
                </CountryData> 
             ))}

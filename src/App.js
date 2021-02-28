@@ -1,3 +1,4 @@
+import ErrorBoundary from 'antd/lib/alert/ErrorBoundary';
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import './App.css';
@@ -7,7 +8,9 @@ const App = () => {
   return (
     <div className="App">
       <BrowserRouter>
-        <Navigation></Navigation>
+        <ErrorBoundary>
+          <Navigation></Navigation>
+          </ErrorBoundary>
       </BrowserRouter>
     </div>
   );
