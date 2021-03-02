@@ -14,7 +14,7 @@ const Header = () => {
     const dispatch = useAppDispatch();
     const content = (
         <div>
-            <a href="#" onClick={signOut}>Sign Out</a>
+            <a href="/" onClick={signOut}>Sign Out</a>
         </div>
       );
     const headerTitle = useSelector((state: RootState) => state.reducer.headerTitle)
