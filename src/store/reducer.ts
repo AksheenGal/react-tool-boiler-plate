@@ -107,10 +107,12 @@ export const reducerSlice = createSlice({
         })
 
         builder.addCase(getCountryDetails.fulfilled, (state, action) => {
-            state.dataForChart = []
-            action.payload.forEach((element: any ) => {
-                state.dataForChart.push(element.data);
-            });
+            if (action.payload) {
+                state.dataForChart = []
+                action.payload.forEach((element: any ) => {
+                    state.dataForChart.push(element.data);
+                });   
+            }
         })
     }
 });

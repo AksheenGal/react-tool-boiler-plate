@@ -34,7 +34,8 @@ const getApiCall = (url: string): Promise<AxiosResponse> => {
   APIOrders.get(url)
     .then(() => store.dispatch(reducerSlice.actions.setLoaderFalse()))
     .catch(err => {
-      store.dispatch(reducerSlice.actions.setLoaderFalse())
+      store.dispatch(reducerSlice.actions.setLoaderFalse());
+      store.dispatch(reducerSlice.actions.setErrorMsg("Something bad happened"));
   })
   return pro;
 }
@@ -43,6 +44,9 @@ const getAll = (allPromise: any): Promise<any> => {
   store.dispatch(reducerSlice.actions.setLoaderTrue());
   const pro = axios.all(allPromise);
   pro.then(() => store.dispatch(reducerSlice.actions.setLoaderFalse()))
-    .catch(err => reducerSlice.actions.setLoaderFalse());
+    .catch(err => {
+      store.dispatch(reducerSlice.actions.setLoaderFalse());
+      store.dispatch(reducerSlice.actions.setErrorMsg("Something bad happened"));
+    });
   return pro;
 }
