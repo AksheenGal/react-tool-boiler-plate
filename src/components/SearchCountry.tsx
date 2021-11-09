@@ -1,6 +1,7 @@
 import { Button, Input } from 'antd';
 import React, { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router';
 import styled from 'styled-components';
 import { RootState } from '../store/indexes';
 import { getCountryFromInput, reducerSlice } from '../store/reducer';
@@ -8,6 +9,8 @@ import { getCountryFromInput, reducerSlice } from '../store/reducer';
 const SearchCountry = () => {
     const inputRef = useRef(null);
     const dispatch = useDispatch();
+    const params = useParams();
+    console.log(params);
     let countryData = useSelector((state: RootState) => state.reducer.apiCountryData)
     const getCountryByName = () => {
         dispatch(getCountryFromInput(inputRef.current));

@@ -1,17 +1,17 @@
+import { LoadingOutlined } from '@ant-design/icons';
+import { Spin } from 'antd';
 import Modal from 'antd/lib/modal/Modal';
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { Route } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { RootState, useAppDispatch } from '../store/indexes';
 import { reducerSlice } from '../store/reducer';
 import Component from './Component';
 import CountryChart from './CountryChart';
 import Header from './Header';
 import LeftNav from './LeftNav';
-import SearchCountry from './SearchCountry';
-import { Spin } from 'antd';
-import { LoadingOutlined } from '@ant-design/icons';
 import Login from './Login';
+import SearchCountry from './SearchCountry';
 
 const antIcon = <LoadingOutlined style={{ fontSize: 80 }} spin />;
 
@@ -38,15 +38,14 @@ const Navigation: React.FC = () => {
                     <LeftNav></LeftNav>
                     <div style={{ width: '100%', height: '700px', overflowY: 'scroll' }}>
                         <div className="screenHeader">{screenDetail}</div>
-                        <Route exact path='/'>
-                            <Component></Component>
+                        <Routes>
+                            <Route path='/' element={ <Component />}>
                         </Route>
-                        <Route exact path='/search'>
-                            <SearchCountry></SearchCountry>
+                            <Route path='/search' element={ <SearchCountry />}>
                         </Route>
-                        <Route exact path='/countryChart'>
-                            <CountryChart></CountryChart>
+                            <Route path='/countryChart' element={<CountryChart /> }>
                         </Route>
+                        </Routes>
                     </div>
                 </div>
             </div>}

@@ -4,28 +4,28 @@ import { reducerSlice } from '../store/reducer';
 
 
 const APIOrders = axios.create({
-    baseURL: 'https://restcountries.eu',
+    baseURL: 'https://restcountries.com/v2/',
     headers: {
       'Content-Type': 'application/json',
     },
 });
   
 export const getApiDataFromApi = (): Promise<AxiosResponse> => {
-    return getApiCall('/rest/v2/all')
+    return getApiCall('/all')
 }
 
 export const getCountryDetailsFromApi = (): Promise<any> => {
-  const requestOne = APIOrders.get('/rest/v2/name/Australia');
-  const requestTwo = APIOrders.get('/rest/v2/name/Mexico');
-  const requestThree = APIOrders.get('/rest/v2/name/Indonesia');
-  const requestFour = APIOrders.get('/rest/v2/name/USA');
-  const requestFive = APIOrders.get('/rest/v2/name/Russia');
+  const requestOne = APIOrders.get('/name/Australia');
+  const requestTwo = APIOrders.get('/name/Mexico');
+  const requestThree = APIOrders.get('/name/Indonesia');
+  const requestFour = APIOrders.get('/name/USA');
+  const requestFive = APIOrders.get('/name/Russia');
   return getAll([requestOne, requestTwo, requestThree, requestFour, requestFive]).catch(err => { });
   
 }
 
 export const getCountryFromInputFromApi = (params: any): Promise<AxiosResponse> => {
-  return getApiCall('/rest/v2/name/' + params.input.value);
+  return getApiCall('/name/' + params.input.value);
 }
 
 const getApiCall = (url: string): Promise<AxiosResponse> => {

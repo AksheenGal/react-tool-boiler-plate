@@ -1,7 +1,7 @@
-import React from 'react';
 import { Menu } from 'antd';
 import "antd/dist/antd.css";
-import { NavLink, useLocation } from 'react-router-dom'
+import React from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
 
 const headerHeight = 55;
 
@@ -18,9 +18,15 @@ const LeftNav = () => {
       >
 
         <Menu.ItemGroup key="g1">
-          <Menu.Item key="/"><NavLink to="/">All Country</NavLink></Menu.Item>
-          <Menu.Item key="/search"><NavLink to="/search">Search Country</NavLink></Menu.Item>
-          <Menu.Item key="/countryChart"><NavLink to="/countryChart">Country By Charts</NavLink></Menu.Item>
+          <Menu.Item key="/"><NavLink className={(navData) => navData.isActive ? 'testClass' : ''} to="/">
+            All Country
+          </NavLink></Menu.Item>
+          <Menu.Item key="/search"><NavLink className={(navData) => navData.isActive ? 'testClass' : ''} to="/search">
+            Search Country
+          </NavLink></Menu.Item>
+          <Menu.Item key="/countryChart"><NavLink className={(navData) => navData.isActive ? 'testClass' : ''} to="/countryChart">
+            Country By Charts
+          </NavLink></Menu.Item>
         </Menu.ItemGroup>
       </Menu>
     </div>
